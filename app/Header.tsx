@@ -6,7 +6,10 @@ function Header() {
 
     if (session) return (
         <header className='sticky top-0 z-50 bg-sky-100 flex justify-center items-center p-10 shadow-sm'>
-
+            <div>
+                <Image className='rounded-full mx-2 object-contain'
+                src={session?.} height={10} width={50} alt='Logo' />
+            </div>
         </header>
 
     )
