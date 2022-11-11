@@ -33,3 +33,4 @@ yarn
 
 yarn run dev
 
+yarn add ioredis
