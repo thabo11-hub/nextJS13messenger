@@ -1,9 +1,16 @@
-import React from 'react';
+"use client";
+
+import { useState } from 'react';
 
 function ChatInput() {
+
+  const [input, setInput] = useState("");
+
   return (
     <form className='flex px-10 space-x-2 border-t border-gray-100 fixed bottom-0 z-50 w-full'>
       <input type="text"
+        value={input}
+        onChange={e =>setInput(e.target.value)}
         placeholder='enter message'
         className='flex-1 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 
         focus:border-transparent px-5 py-3 disabled:opacity-50 disabled:cursor-not-allowed'
