@@ -1,12 +1,13 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import LogoutButton from './LogoutButton';
 
 function Header() {
     const session = true;
 
     if (session) return (
-        <header className='sticky top-0 z-50 bg-sky-100 flex justify-center items-center p-10 shadow-sm'>
-            <div>
+        <header className='sticky top-0 z-50 bg-sky-100 flex justify-between items-center p-10 shadow-sm'>
+            <div className='flex space-x-2'>
                 <Image className='rounded-full mx-2 object-contain'
                 src="https://links.papareact.com/jne" height={10} width={50} alt='Profile Pic' />
                 <div>
@@ -14,6 +15,8 @@ function Header() {
                     <p className='font-bold text-lg'>ELdRiDg3</p>
                 </div>
             </div>
+
+            <LogoutButton />
 
         </header>
 
