@@ -33,9 +33,3 @@ yarn
 
 yarn run dev
 
-git init
-git add .
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/thabo11-hub/nextJS13messenger.git
-git push -u origin main
