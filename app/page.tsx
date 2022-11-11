@@ -1,8 +1,13 @@
-import React from 'react'
+import React from "react";
+import MessageList from "./MessageList";
+import ChatInput from "./ChatInput";
 
 function HomePage() {
   return (
-    <div>HomePage</div>
+    <main>
+        <MessageList />
+        <ChatInput />
+    </main>
   )
 }
 
