@@ -14,7 +14,7 @@ export default async function RootLayout({
             <head />
             <body>
                 <Header />
-                <Providers>
+                <Providers session={session}>
                     {children}
                 </Providers>
             </body>
