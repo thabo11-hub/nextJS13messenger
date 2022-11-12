@@ -63,7 +63,7 @@ function ChatInput() {
   };
 
   return (
-    <form onSubmit={addMessage} className="flex px-10 space-x-2 border-t border-gray-100 fixed bottom-0 z-50 w-full">
+    <form onSubmit={addMessage} className="flex px-10 space-x-2 border-t bg-white border-gray-100 fixed bottom-0 z-50 w-full">
       <input type="text"
         value={input}
         onChange={(e) => setInput(e.target.value)}
@@ -77,6 +77,7 @@ function ChatInput() {
       </button>
     </form>
   )
+  
 }
 
 export default ChatInput;
