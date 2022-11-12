@@ -14,11 +14,12 @@ export default function handler(
     return;
   }
 
-  const {message} = req.body;
+  const { message } = req.body;
 
   const newMessage = {
     ...message,
-  }
+    created_at: Date.now(),
+  };
 
   res.status(200).json({ name: "John Doe" });
 }
