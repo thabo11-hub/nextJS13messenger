@@ -4,7 +4,7 @@ import redis from "../../redis";
 import { Message } from "../../typings";
 
 type Data = {
-  message: Message;
+  messages: Message[];
 };
 
 type ErrorData = {
@@ -23,9 +23,9 @@ export default async function handler(
   const messageRes = await redis.hvals("message");
 
   //pass the response
-  const messags: Message[] = messageRes
+  const messages: Message[] = messageRes
     .map((message) => JSON.parse(message))
     .sort((a, b) => b.created_at - a.created_at);
 
-  res.status(200).json({ message: newMessage });
+  res.status(200).json({ messages });
 }
