@@ -1,13 +1,16 @@
 import MessageList from "./MessageList";
 import ChatInput from "./ChatInput";
+import { Message } from "../typings";
 
 async function HomePage() {
 
-  const data = await fetch(`${process.env.VERCEL_URL}/api/getMessages`).then((res) =>res.json());
+  const data = await fetch(`${process.env.VERCEL_URL}/api/getMessages`).then((res) => res.json());
+
+  const messages: Message[] = data.messages;
   return (
     <main>
-        <MessageList />
-        <ChatInput />
+      <MessageList initialMessage={messages}/>
+      <ChatInput />
     </main>
   )
 }

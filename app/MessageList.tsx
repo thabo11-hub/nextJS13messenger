@@ -6,7 +6,11 @@ import MessageComponent from "./MessageComponent";
 import { useEffect } from "react";
 import { clientPusher } from "../pusher";
 
-function MessageList() {
+type Props = { 
+  initialMessage: Message[] 
+}
+
+function MessageList({ initialMessage }: Props) {
 
   const { data: messages, error, mutate } = useSWR<Message[]>("/api/getMessages", fetcher);
 
