@@ -1,5 +1,6 @@
 import { getProviders } from "next-auth/react";
 import Image from "next/image";
+import SignInComponent from "./SignInComponent";
 
 async function SignInPage() {
     const providers = await getProviders();
@@ -14,8 +15,9 @@ async function SignInPage() {
                     alt="Profile picture"
                 />
             </div>
+            <SignInComponent providers={providers} />
         </div>
-    )
+    );
 }
 
 export default SignInPage
