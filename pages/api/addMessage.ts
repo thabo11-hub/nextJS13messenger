@@ -1,17 +1,22 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 import redis from "../../redis"
+import { Message } from "../../typings";
 
 type Data = {
-  name: string;
+    message: Message;
 };
+
+type ErrorData = { 
+    body: string;
+}
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<Data | ErrorData>
 ) {
   if (req.method !== "POST") {
-    res.status(405).json({ name: "Method Not Allowed" });
+    res.status(405).json({ body: "Method Not Allowed" });
     return;
   }
 
@@ -25,5 +30,5 @@ export default async function handler(
   //push to redis
   await redis.hset('message', message.id, JSON.stringify(newMessage));
 
-  res.status(200).json({ name: "John Doe" });
+  res.status(200).json({ message: newMessage});
 }
