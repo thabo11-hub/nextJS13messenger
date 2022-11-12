@@ -12,7 +12,7 @@ function ChatInput() {
   const { data: messages, error, mutate } = useSWR("/api/getMessages", fetcher);
 
   // data: messages <- renamed data to messages
-  console.log("our message is : ",messages);
+  console.log("our message is : ", messages);
 
   const addMessage = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();

@@ -2,6 +2,7 @@
 import fetcher from "../utils/fetchMessages";
 import useSWR from "swr";
 import { Message } from "../typings";
+import MessageComponent from "./MessageComponent";
 
 function MessageList() {
 
@@ -10,9 +11,7 @@ function MessageList() {
   return (
     <div>
       {messages?.map(message => (
-        <div key={message.id}>
-          <p>{message.message}</p>
-        </div>
+        <MessageComponent key={message.id} message={message} />
       ))}
     </div>
   )
