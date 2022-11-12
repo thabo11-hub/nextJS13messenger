@@ -34,3 +34,6 @@ yarn
 yarn run dev
 
 yarn add ioredis
+
+yarn add uuid
+yarn add -D @types/uuid

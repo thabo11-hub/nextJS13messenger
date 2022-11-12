@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from 'react';
+import { v4 as uuid } from 'uuid';
 
 function ChatInput() {
 
@@ -9,11 +10,22 @@ function ChatInput() {
   const addMessage = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if(!input) return;
+    if (!input) return;
 
     const messageToSend = input;
-    
+
     setInput("");
+
+    const id = uuid();
+
+    const message = {
+      id,
+      message: messageToSend,
+      created_at : Date.now(),
+      username:'Eldridge',
+      profilePic:'https://imgs.search.brave.com/I89N79oEi5Im8M-4hQmtO5NepNLtXksKsD1Pu4dM71I/rs:fit:256:256:1/g:ce/aHR0cHM6Ly9yZXMt/MS5jbG91ZGluYXJ5/LmNvbS9jcnVuY2hi/YXNlLXByb2R1Y3Rp/b24vaW1hZ2UvdXBs/b2FkL2NfbHBhZCxo/XzI1Nix3XzI1Nixm/X2F1dG8scV9hdXRv/OmVjby9rYWx6ZGdw/cmFvZW1vaHBvcXFm/Zg',
+      email:'thabosodi11@gmail.com'
+    }
   };
 
   return (
@@ -27,7 +39,7 @@ function ChatInput() {
       />
       <button type="submit" disabled={!input} className="bg-blue-400 hover:bg-blue-500 text-white 
         font-bold py-2 px-4 rounded disabled:opacity-50 disabled:cursor-not-allowed">
-          Send
+        Send
       </button>
     </form>
   )
