@@ -39,3 +39,5 @@ yarn add uuid
 yarn add -D @types/uuid
 ####
 yarn add swr
+
+yarn add pusher pusher-js
