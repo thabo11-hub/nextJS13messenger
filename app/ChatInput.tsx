@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from 'react';
 import { v4 as uuid } from 'uuid';
+import { Message } from '../typings';
 
 function ChatInput() {
 
@@ -18,13 +19,25 @@ function ChatInput() {
 
     const id = uuid();
 
-    const message = {
+    const message: Message = {
       id,
       message: messageToSend,
-      created_at : Date.now(),
-      username:'Eldridge',
-      profilePic:'https://imgs.search.brave.com/I89N79oEi5Im8M-4hQmtO5NepNLtXksKsD1Pu4dM71I/rs:fit:256:256:1/g:ce/aHR0cHM6Ly9yZXMt/MS5jbG91ZGluYXJ5/LmNvbS9jcnVuY2hi/YXNlLXByb2R1Y3Rp/b24vaW1hZ2UvdXBs/b2FkL2NfbHBhZCxo/XzI1Nix3XzI1Nixm/X2F1dG8scV9hdXRv/OmVjby9rYWx6ZGdw/cmFvZW1vaHBvcXFm/Zg',
-      email:'thabosodi11@gmail.com'
+      created_at: Date.now(),
+      username: 'Eldridge',
+      profilePic: 'https://imgs.search.brave.com/I89N79oEi5Im8M-4hQmtO5NepNLtXksKsD1Pu4dM71I/rs:fit:256:256:1/g:ce/aHR0cHM6Ly9yZXMt/MS5jbG91ZGluYXJ5/LmNvbS9jcnVuY2hi/YXNlLXByb2R1Y3Rp/b24vaW1hZ2UvdXBs/b2FkL2NfbHBhZCxo/XzI1Nix3XzI1Nixm/X2F1dG8scV9hdXRv/OmVjby9rYWx6ZGdw/cmFvZW1vaHBvcXFm/Zg',
+      email: 'thabosodi11@gmail.com'
+    }
+
+    const uploadMessageToUpstash = async () => {
+      const data = await fetch('api/addMessage', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message,
+        }),
+      });
     }
   };
 
