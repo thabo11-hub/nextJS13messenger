@@ -43,3 +43,5 @@ yarn add swr
 yarn add pusher pusher-js
 
 yarn add encoding
+
+yarn add next-auth
