@@ -18,9 +18,9 @@ function MessageList() {
       mutate(fetcher, {
         optimisticData: [data, ...messages!],
         rollbackOnError: true
-      })
-    })
-  }, [])
+      });
+    });
+  }, [messages, mutate, clientPusher]);
 
   return (
     <div className="space-y-5 px-5 pt-8 pb-32 max-w-2xl xl:max-w-4xl mx-auto">
