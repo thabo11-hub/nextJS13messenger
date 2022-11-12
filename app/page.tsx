@@ -1,7 +1,9 @@
 import MessageList from "./MessageList";
 import ChatInput from "./ChatInput";
 
-function HomePage() {
+async function HomePage() {
+
+  const data = await fetch(`${process.env.VERCEL_URL}/api/getMessages`).then((res) =>res.json());
   return (
     <main>
         <MessageList />

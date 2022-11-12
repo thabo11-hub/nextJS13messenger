@@ -20,7 +20,7 @@ function MessageList() {
       if (messages?.find((message) => message.id === data.id)) return;
 
       if (!messages) {
-        mutate(fetcher)
+        mutate(fetcher);
       } else {
 
         mutate(fetcher, {
