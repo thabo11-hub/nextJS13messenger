@@ -15,6 +15,10 @@ export default function handler(
   }
 
   const {message} = req.body;
-  
+
+  const newMessage = {
+    ...message,
+  }
+
   res.status(200).json({ name: "John Doe" });
 }
