@@ -12,6 +12,7 @@ function ChatInput() {
   const { data: messages, error, mutate } = useSWR("/api/getMessages", fetcher);
 
   // data: messages <- renamed data to messages
+  console.log("our message is : ",messages);
 
   const addMessage = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -31,10 +32,10 @@ function ChatInput() {
       username: "Eldridge",
       profilePic: "https://imgs.search.brave.com/I89N79oEi5Im8M-4hQmtO5NepNLtXksKsD1Pu4dM71I/rs:fit:256:256:1/g:ce/aHR0cHM6Ly9yZXMt/MS5jbG91ZGluYXJ5/LmNvbS9jcnVuY2hi/YXNlLXByb2R1Y3Rp/b24vaW1hZ2UvdXBs/b2FkL2NfbHBhZCxo/XzI1Nix3XzI1Nixm/X2F1dG8scV9hdXRv/OmVjby9rYWx6ZGdw/cmFvZW1vaHBvcXFm/Zg",
       email: "thabosodi11@gmail.com"
-    }
+    };
 
     const uploadMessageToUpstash = async () => {
-      const data = await fetch("api/addMessage", {
+      const data = await fetch("/api/addMessage", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -62,10 +63,10 @@ function ChatInput() {
   };
 
   return (
-    <form onSubmit={e => addMessage} className="flex px-10 space-x-2 border-t border-gray-100 fixed bottom-0 z-50 w-full">
+    <form onSubmit={addMessage} className="flex px-10 space-x-2 border-t border-gray-100 fixed bottom-0 z-50 w-full">
       <input type="text"
         value={input}
-        onChange={e => setInput(e.target.value)}
+        onChange={(e) => setInput(e.target.value)}
         placeholder="enter message"
         className="flex-1 rounded border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 
         focus:border-transparent px-5 py-3 disabled:opacity-50 disabled:cursor-not-allowed"
