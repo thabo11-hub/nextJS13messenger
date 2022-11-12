@@ -30,10 +30,12 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 npx create-next-app -e with-tailwindcss upstash-messenger
 
 yarn
-
+#
 yarn run dev
-
+##
 yarn add ioredis
-
+##
 yarn add uuid
 yarn add -D @types/uuid
+####
+yarn add swr
