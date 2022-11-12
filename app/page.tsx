@@ -9,7 +9,7 @@ async function HomePage() {
   const messages: Message[] = data.messages;
   return (
     <main>
-      <MessageList initialMessage={messages}/>
+      <MessageList initialMessage={messages} />
       <ChatInput />
     </main>
   )
