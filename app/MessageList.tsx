@@ -15,10 +15,17 @@ function MessageList() {
     const channel = clientPusher.subscribe("messages");
 
     channel.bind("new-message", async (data: Message) => {
-      mutate(fetcher, {
-        optimisticData: [data, ...messages!],
-        rollbackOnError: true
-      });
+
+      if (!messages) {
+        mutate(fetcher)
+      } else {
+
+        mutate(fetcher, {
+          optimisticData: [data, ...messages!],
+          rollbackOnError: true
+        });
+      }
+
     });
   }, [messages, mutate, clientPusher]);
 
