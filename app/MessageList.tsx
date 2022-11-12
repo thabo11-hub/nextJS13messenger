@@ -10,14 +10,17 @@ function MessageList() {
 
   const { data: messages, error, mutate } = useSWR<Message[]>("/api/getMessages", fetcher);
 
-  useEffect(() =>{
+  useEffect(() => {
 
-    const channel = clientPusher.subscribe('messages');
+    const channel = clientPusher.subscribe("messages");
 
-    channel.bind('new-message',async (data:Message[]) =>{
-
+    channel.bind("new-message", async (data: Message) => {
+      mutate(fetcher, {
+        optimisticData: [data, ...messages!],
+        rollbackOnError: true
+      })
     })
-  },[])
+  }, [])
 
   return (
     <div className="space-y-5 px-5 pt-8 pb-32 max-w-2xl xl:max-w-4xl mx-auto">
