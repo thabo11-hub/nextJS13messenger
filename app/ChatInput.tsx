@@ -29,7 +29,7 @@ function ChatInput() {
     }
 
     const uploadMessageToUpstash = async () => {
-      const data = await fetch('api/addMessage', {
+      const res = await fetch('api/addMessage', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -38,7 +38,13 @@ function ChatInput() {
           message,
         }),
       });
-    }
+
+      const data = await res.json();
+      console.log('Message added successfully',data);
+    };
+
+    uploadMessageToUpstash();
+    
   };
 
   return (
