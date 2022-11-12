@@ -52,7 +52,10 @@ function ChatInput() {
     };
 
     //mutate 
-    await mutate(uploadMessageToUpstash,)
+    await mutate(uploadMessageToUpstash, {
+      optimisticData: [message, ...messages!],
+      rollbackOnError: true
+    })
 
     // uploadMessageToUpstash();
 
