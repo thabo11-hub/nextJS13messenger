@@ -41,3 +41,5 @@ yarn add -D @types/uuid
 yarn add swr
 
 yarn add pusher pusher-js
+
+yarn add encoding

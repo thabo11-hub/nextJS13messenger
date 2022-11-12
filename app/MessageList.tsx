@@ -16,6 +16,9 @@ function MessageList() {
 
     channel.bind("new-message", async (data: Message) => {
 
+      // if u sent the message no need to update cache
+      if(messages?.find((message) => message.id === data.id)) return;
+
       if (!messages) {
         mutate(fetcher)
       } else {
