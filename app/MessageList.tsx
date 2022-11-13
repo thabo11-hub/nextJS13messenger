@@ -15,13 +15,14 @@ function MessageList({ initialMessage }: Props) {
   const { data: messages, error, mutate } = useSWR<Message[]>("/api/getMessages", fetcher);
 
   useEffect(() => {
-
+    
     const channel = clientPusher.subscribe("messages");
 
     channel.bind("new-message", async (data: Message) => {
 
       // if u sent the message no need to update cache
       if (messages?.find((message) => message.id === data.id)) return;
+      // console.log("---New Message List", data.messages);
 
       if (!messages) {
         mutate(fetcher);

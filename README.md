@@ -45,3 +45,7 @@ yarn add pusher pusher-js
 yarn add encoding
 
 yarn add next-auth
+
+yarn add react-timeago
+
+yarn add -D @types/react-timeago
