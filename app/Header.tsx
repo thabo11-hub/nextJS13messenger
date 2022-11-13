@@ -10,10 +10,10 @@ async function Header() {
         <header className="sticky top-0 z-50 bg-sky-100 flex justify-between items-center p-10 shadow-sm">
             <div className="flex space-x-2">
                 <Image className="rounded-full mx-2 object-contain"
-                src="https://links.papareact.com/jne" height={10} width={50} alt="Profile Pic" priority/>
+                src={session.user?.image!} height={10} width={50} alt="Profile Pic" priority/>
                 <div>
                     <p className="text-blue-400">Logged in as:</p>
-                    <p className="font-bold text-lg">ELdRiDg3</p>
+                    <p className="font-bold text-lg">{session.user?.name}</p>
                 </div>
             </div>
 
