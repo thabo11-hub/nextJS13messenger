@@ -49,3 +49,10 @@ yarn add next-auth
 yarn add react-timeago
 
 yarn add -D @types/react-timeago
+
+ 
+### used
+- Upstash to create a serverless redis database
+- Pusher to enable real time aspect to redis DB
+- SWR the data fetching hook for replacing REDUX
+
